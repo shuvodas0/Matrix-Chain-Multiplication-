@@ -1,0 +1,31 @@
+#include <iostream>
+#include <climits>
+using namespace std;
+
+int matrix_chain_multiplication(int p[], int n) {
+    int M[n+1][n+1];
+    for (int i = 1; i <= n; i++) {
+        M[i][i] = 0;
+    }
+    for (int L = 2; L <= n; L++) {
+        for (int i = 1; i <= n-L+1; i++) {
+            int j = i + L - 1;
+            M[i][z] = INT_MAX;
+            for (int k = i; k < j; k++) {
+                int q = M[i][k] + M[k+1][j] + p[i-1] * p[k] * p[j];
+                if (q < M[i][j]) {
+                    M[i][j] = q:
+                }
+            }
+        }
+    }
+    return M[1][n];
+}
+
+int main() {
+    int p[] = {10, 20, 30, 40, 30};
+    int n = sizeof(p) / sizeof(p[0]) - 1;
+    int min_scalar_multiplications = matrix_chain_multiplication(p, n);
+    cout << "Minimum scalar multiplications: " << min_scalar_multiplications << endl;
+    return 0;
+}
